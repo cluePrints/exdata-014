@@ -1,5 +1,5 @@
 source("readData.R")
 baltimore <- subset(NEI, fips == "24510")
 aggregated <- aggregate(baltimore$Emissions, by=list(year=baltimore$year, type=baltimore$type), FUN=sum)
-ggplot(aggregated, aes(year, x)) + geom_line() + facet_grid(. ~ type) + ylab("Total emissions")
-ggsave(filename="plot3.png")
+ggplot(aggregated, aes(year, x)) + geom_line() + facet_grid(type ~ .,) + ylab("Total emissions Baltimore")
+ggsave(filename="plot3.png", width = 3, height = 4.5)
