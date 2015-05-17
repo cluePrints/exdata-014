@@ -1,0 +1,5 @@
+source("readData.R")
+totalPerYear <- aggregate(NEI$Emissions, by=list(year=NEI$year), FUN=sum)
+png(file="plot1.png")
+plot(totalPerYear, type="l", ylab = "Emissions")
+dev.off()

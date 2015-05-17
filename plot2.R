@@ -1,0 +1,6 @@
+source("readData.R")
+baltimore <- subset(NEI, fips == "24510")
+totalPerYear <- aggregate(baltimore$Emissions, by=list(year=baltimore$year), FUN=sum)
+png(file="plot2.png")
+plot(totalPerYear, type="l", ylab = "Emissions", main="Baltimore total emissions")
+dev.off()
